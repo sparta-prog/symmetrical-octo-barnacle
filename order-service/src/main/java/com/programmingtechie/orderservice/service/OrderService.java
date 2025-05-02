@@ -42,7 +42,7 @@ public class OrderService {
             //check if item exists from inventory service.
             //if not, throw exception
             InventoryResponse[] inventoryResponses = webClientBuilder.build().get()
-                    .uri("http://localhost:8082/api/inventory",
+                    .uri("http://inventory-service/api/inventory",
                             uriBuilder -> uriBuilder.queryParam("skuCode", skuCodes).build())
                     .retrieve()
                     .bodyToMono(InventoryResponse[].class)
